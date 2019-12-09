@@ -40,6 +40,7 @@ final class HomeViewController: UIViewController {
         setupNavigationBar()
         assemble()
         setupLayout()
+        print("Egor")
     }
     
   
