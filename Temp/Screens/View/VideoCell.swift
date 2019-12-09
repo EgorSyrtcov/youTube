@@ -18,6 +18,7 @@ class VideoCell: UICollectionViewCell {
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 55 / 2
         imageView.backgroundColor = .green
         return imageView
     }()
@@ -28,6 +29,17 @@ class VideoCell: UICollectionViewCell {
         return view
     }()
     
+    let titleLabel: UILabel = {
+        let tl = UILabel()
+        tl.backgroundColor = .purple
+        return tl
+    }()
+    
+    let subtitleTextView: UITextView = {
+        let st = UITextView()
+        st.backgroundColor = .red
+        return st
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +56,8 @@ class VideoCell: UICollectionViewCell {
         addSubview(thumbnailImageView)
         addSubview(userProfileImageView)
         addSubview(seporatorView)
+        addSubview(titleLabel)
+        addSubview(subtitleTextView)
     }
     
     private func setupLayout() {
@@ -51,11 +65,11 @@ class VideoCell: UICollectionViewCell {
             make.topMargin.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-60)
+            make.bottom.equalToSuperview().offset(-70)
         }
         
         userProfileImageView.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: 50, height: 50))
+            make.size.equalTo(CGSize(width: 55, height: 55))
             make.left.equalTo(thumbnailImageView)
             make.top.equalTo(thumbnailImageView.snp.bottom).offset(5)
         }
@@ -65,6 +79,18 @@ class VideoCell: UICollectionViewCell {
             make.right.equalTo(snp.right)
             make.height.equalTo(1)
             make.bottom.equalTo(snp.bottom)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(userProfileImageView.snp.right).offset(5)
+            make.top.equalTo(userProfileImageView)
+            make.height.equalTo(25)
+            make.right.equalTo(thumbnailImageView)
+        }
+        
+        subtitleTextView.snp.makeConstraints { (make) in
+            make.left.height.right.equalTo(titleLabel)
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
         }
     }
     

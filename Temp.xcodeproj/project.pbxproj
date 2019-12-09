@@ -56,7 +56,7 @@
 			path = UIkit;
 			sourceTree = "<group>";
 		};
-		2E0AA956238678F500D10413 /* Model */ = {
+		2E0BB0C2239E3F6F0070234B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -74,7 +74,7 @@
 		2E11D05C23811F37006C07DF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2E0AA956238678F500D10413 /* Model */,
+				2E0BB0C2239E3F6F0070234B /* Model */,
 				2E0CC10E2384376E00C6EF57 /* Home */,
 				2E425A83239640B9003B04B2 /* View */,
 			);

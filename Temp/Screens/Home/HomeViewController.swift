@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.frame.width, height: 200)
+        layout.itemSize = CGSize(width: self.view.frame.width, height: 310)
         layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.alwaysBounceVertical = true
