@@ -12,14 +12,18 @@ class VideoCell: UICollectionViewCell {
     
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = #imageLiteral(resourceName: "taylor swift")
         return imageView
     }()
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 55 / 2
-        imageView.backgroundColor = .green
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = #imageLiteral(resourceName: "taylor")
         return imageView
     }()
     

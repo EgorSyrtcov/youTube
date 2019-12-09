@@ -15,6 +15,11 @@ private struct Properties {
 
 final class HomeViewController: UIViewController {
     
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        return mb
+    }()
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: self.view.frame.width, height: 310)
@@ -39,16 +44,32 @@ final class HomeViewController: UIViewController {
     
   
     private func setupNavigationBar() {
-        title = "Home"
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.text = "Home"
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        
+        navigationItem.titleView = titleLabel
+        navigationController?.navigationBar.barStyle = .black
+        
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func assemble() {
+       view.addSubview(menuBar)
        view.addSubview(collectionView)
+
     }
     
     private func setupLayout() {
+        menuBar.snp.makeConstraints { (make) in
+            make.height.equalTo(50)
+            make.left.right.topMargin.equalToSuperview()
+        }
+        
         collectionView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(menuBar.snp.bottom)
         }
     }
     
