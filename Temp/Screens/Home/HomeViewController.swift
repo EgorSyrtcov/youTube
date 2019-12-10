@@ -15,6 +15,21 @@ private struct Properties {
 
 final class HomeViewController: UIViewController {
     
+    var videos: [Video] = {
+        var kanyeChannel = Channel(name: "TaylorSwiftVevo 1,604,683,594", profileImageName: "taylor")
+        var kanyeChannel2 = Channel(name: "TaylorSwiftVevo 1,963,549,594", profileImageName: "taylor2")
+        var kanyeChannel3 = Channel(name: "TaylorSwiftVevo 1,831,863,594", profileImageName: "taylor3")
+        var kanyeChannel4 = Channel(name: "TaylorSwiftVevo 1,207,264,594", profileImageName: "taylor4")
+        var kanyeChannel5 = Channel(name: "TaylorSwiftVevo 1,863,683,051", profileImageName: "taylor5")
+        
+        var blankSpaceVideo = Video(thumbnailImageName: "taylor swift", title: "Taylor Swift - Blank Space", channel: kanyeChannel)
+        var blankSpaceVideo2 = Video(thumbnailImageName: "taylor swift2", title: "Taylor Swift - Bad Blood feathera Bad Blood feathera", channel: kanyeChannel2)
+        var blankSpaceVideo3 = Video(thumbnailImageName: "taylor swift3", title: "Taylor Swift - Blank Space", channel: kanyeChannel3)
+        var blankSpaceVideo4 = Video(thumbnailImageName: "taylor swift4", title: "Taylor Swift - Blank Space", channel: kanyeChannel4)
+        var blankSpaceVideo5 = Video(thumbnailImageName: "taylor swift5", title: "Taylor Swift - Blank Space", channel: kanyeChannel5)
+        return [blankSpaceVideo, blankSpaceVideo2, blankSpaceVideo3, blankSpaceVideo4, blankSpaceVideo5]
+    }()
+    
     let menuBar: MenuBar = {
         let mb = MenuBar()
         return mb
@@ -33,7 +48,6 @@ final class HomeViewController: UIViewController {
         return collection
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -42,7 +56,6 @@ final class HomeViewController: UIViewController {
         setupLayout()
     }
     
-  
     private func setupNavigationBar() {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.text = "Home"
@@ -51,14 +64,28 @@ final class HomeViewController: UIViewController {
         
         navigationItem.titleView = titleLabel
         navigationController?.navigationBar.barStyle = .black
-        
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        setupNavigationButtons()
+    }
+    
+    private func setupNavigationButtons() {
+        let searchBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .done, target: self, action: #selector(tabSearchNavigationBar))
+        let moreBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "more"), style: .done, target: self, action: #selector(tabMoreNavigationBar))
+        navigationItem.rightBarButtonItems = [moreBarButton, searchBarButton]
+    }
+    
+    @objc func tabSearchNavigationBar() {
+        print("tabSearchNavigationBar")
+    }
+    
+    @objc func tabMoreNavigationBar() {
+        print("tabMoreNavigationBar")
     }
     
     private func assemble() {
        view.addSubview(menuBar)
        view.addSubview(collectionView)
-
     }
     
     private func setupLayout() {
@@ -72,24 +99,21 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(menuBar.snp.bottom)
         }
     }
-    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return videos.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath) as! VideoCell
+        cell.video = videos[indexPath.item]
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
-    
-    
-    
-    
 }
