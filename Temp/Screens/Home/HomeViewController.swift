@@ -20,14 +20,12 @@ final class HomeViewController: UIViewController {
         var kanyeChannel2 = Channel(name: "TaylorSwiftVevo 1,963,549,594", profileImageName: "taylor2")
         var kanyeChannel3 = Channel(name: "TaylorSwiftVevo 1,831,863,594", profileImageName: "taylor3")
         var kanyeChannel4 = Channel(name: "TaylorSwiftVevo 1,207,264,594", profileImageName: "taylor4")
-        var kanyeChannel5 = Channel(name: "TaylorSwiftVevo 1,863,683,051", profileImageName: "taylor5")
         
         var blankSpaceVideo = Video(thumbnailImageName: "taylor swift", title: "Taylor Swift - Blank Space", channel: kanyeChannel)
         var blankSpaceVideo2 = Video(thumbnailImageName: "taylor swift2", title: "Taylor Swift - Bad Blood feathera Bad Blood feathera", channel: kanyeChannel2)
         var blankSpaceVideo3 = Video(thumbnailImageName: "taylor swift3", title: "Taylor Swift - Blank Space", channel: kanyeChannel3)
         var blankSpaceVideo4 = Video(thumbnailImageName: "taylor swift4", title: "Taylor Swift - Blank Space", channel: kanyeChannel4)
-        var blankSpaceVideo5 = Video(thumbnailImageName: "taylor swift5", title: "Taylor Swift - Blank Space", channel: kanyeChannel5)
-        return [blankSpaceVideo, blankSpaceVideo2, blankSpaceVideo3, blankSpaceVideo4, blankSpaceVideo5]
+        return [blankSpaceVideo, blankSpaceVideo2, blankSpaceVideo3, blankSpaceVideo4]
     }()
     
     let menuBar: MenuBar = {
