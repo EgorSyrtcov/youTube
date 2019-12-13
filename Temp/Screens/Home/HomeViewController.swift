@@ -61,9 +61,9 @@ final class HomeViewController: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         
         navigationItem.titleView = titleLabel
-        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.shadowImage = UIImage()
-        
+
         setupNavigationButtons()
     }
     
@@ -88,8 +88,9 @@ final class HomeViewController: UIViewController {
     
     private func setupLayout() {
         menuBar.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.top.equalToSuperview()
             make.height.equalTo(50)
-            make.left.right.topMargin.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints { (make) in

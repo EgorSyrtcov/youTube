@@ -45,7 +45,7 @@ class MenuCell: BaseCell {
     private func setupLay() {
         imageView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 24, height: 24))
+            make.size.equalTo(CGSize(width: 20, height: 20))
         }
     }
     
