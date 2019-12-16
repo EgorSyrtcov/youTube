@@ -15,6 +15,8 @@ private struct Properties {
 
 final class HomeViewController: UIViewController {
     
+    let settingsLauncher = SettingsLauncer()
+    
     var videos: [Video] = {
         var kanyeChannel = Channel(name: "TaylorSwiftVevo 1,604,683,594", profileImageName: "taylor")
         var kanyeChannel2 = Channel(name: "TaylorSwiftVevo 1,963,549,594", profileImageName: "taylor2")
@@ -77,9 +79,13 @@ final class HomeViewController: UIViewController {
         print("tabSearchNavigationBar")
     }
     
+  
+    
     @objc func tabMoreNavigationBar() {
-        print("tabMoreNavigationBar")
+       settingsLauncher.showSettings()
     }
+    
+   
     
     private func assemble() {
        view.addSubview(menuBar)

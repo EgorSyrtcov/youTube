@@ -73,13 +73,4 @@ extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width / 4, height: frame.height)
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: frame.width / 4, height: frame.height)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//        return CGSize(width: frame.width / 4, height: frame.height)
-//    }
-    
 }
