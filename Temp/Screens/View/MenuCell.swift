@@ -18,8 +18,8 @@ class MenuCell: BaseCell {
         return imageView
     }()
     
-    override func setupLayout() {
-        super.setupLayout()
+    override func setupView() {
+        super.setupView()
         
         backgroundColor = UIColor.mainPink()
         assemble()

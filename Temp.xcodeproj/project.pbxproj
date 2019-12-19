@@ -12,14 +12,17 @@
 		2E0BB0C6239E48AA0070234B /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BB0C5239E48AA0070234B /* BaseCell.swift */; };
 		2E0BB0C8239E49620070234B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BB0C7239E49620070234B /* MenuCell.swift */; };
 		2E1A708123A7A945005222B4 /* SettingsLauncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1A708023A7A945005222B4 /* SettingsLauncer.swift */; };
+		2E1AC24223A8E46100C2B40B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AC24123A8E46100C2B40B /* SettingCell.swift */; };
 		2E425A8223962DED003B04B2 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E425A8123962DED003B04B2 /* SnapKit.framework */; };
 		2E425A85239640DD003B04B2 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E425A84239640DD003B04B2 /* VideoCell.swift */; };
+		2E97784623A9FCF300F85BE3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E97784523A9FCF300F85BE3 /* Setting.swift */; };
 		2EA58B5E239F72FA00A13C69 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA58B5D239F72FA00A13C69 /* Video.swift */; };
 		2EA58B60239F7A4C00A13C69 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA58B5F239F7A4C00A13C69 /* Channel.swift */; };
 		2EE58208237696AB00AE8E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58207237696AB00AE8E98 /* AppDelegate.swift */; };
 		2EE5820A237696AB00AE8E98 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE58209237696AB00AE8E98 /* HomeViewController.swift */; };
 		2EE5820F237696AE00AE8E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5820E237696AE00AE8E98 /* Assets.xcassets */; };
 		2EE58212237696AE00AE8E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE58210237696AE00AE8E98 /* LaunchScreen.storyboard */; };
+		2EE9C2B023AB5A40001F95A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +31,10 @@
 		2E0BB0C5239E48AA0070234B /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		2E0BB0C7239E49620070234B /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		2E1A708023A7A945005222B4 /* SettingsLauncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncer.swift; sourceTree = "<group>"; };
+		2E1AC24123A8E46100C2B40B /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		2E425A8123962DED003B04B2 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		2E425A84239640DD003B04B2 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		2E97784523A9FCF300F85BE3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		2EA58B5D239F72FA00A13C69 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		2EA58B5F239F7A4C00A13C69 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		2EE58204237696AB00AE8E98 /* Temp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Temp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +43,7 @@
 		2EE5820E237696AE00AE8E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EE58211237696AE00AE8E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EE58213237696AE00AE8E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			children = (
 				2EE58209237696AB00AE8E98 /* HomeViewController.swift */,
 				2E1A708023A7A945005222B4 /* SettingsLauncer.swift */,
+				2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -91,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2E425A84239640DD003B04B2 /* VideoCell.swift */,
+				2E1AC24123A8E46100C2B40B /* SettingCell.swift */,
 				2E0BB0C3239E45700070234B /* MenuBar.swift */,
 				2E0BB0C7239E49620070234B /* MenuCell.swift */,
 				2E0BB0C5239E48AA0070234B /* BaseCell.swift */,
@@ -103,6 +111,7 @@
 			children = (
 				2EA58B5D239F72FA00A13C69 /* Video.swift */,
 				2EA58B5F239F7A4C00A13C69 /* Channel.swift */,
+				2E97784523A9FCF300F85BE3 /* Setting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,12 +256,15 @@
 			files = (
 				2E0BB0C8239E49620070234B /* MenuCell.swift in Sources */,
 				2EE5820A237696AB00AE8E98 /* HomeViewController.swift in Sources */,
+				2E97784623A9FCF300F85BE3 /* Setting.swift in Sources */,
 				2E425A85239640DD003B04B2 /* VideoCell.swift in Sources */,
 				2E0BB0C6239E48AA0070234B /* BaseCell.swift in Sources */,
+				2E1AC24223A8E46100C2B40B /* SettingCell.swift in Sources */,
 				2E0AA952238662D400D10413 /* Extensions.swift in Sources */,
 				2EA58B5E239F72FA00A13C69 /* Video.swift in Sources */,
 				2EE58208237696AB00AE8E98 /* AppDelegate.swift in Sources */,
 				2EA58B60239F7A4C00A13C69 /* Channel.swift in Sources */,
+				2EE9C2B023AB5A40001F95A8 /* SettingsViewController.swift in Sources */,
 				2E0BB0C4239E45700070234B /* MenuBar.swift in Sources */,
 				2E1A708123A7A945005222B4 /* SettingsLauncer.swift in Sources */,
 			);

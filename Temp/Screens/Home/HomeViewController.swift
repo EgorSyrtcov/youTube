@@ -15,7 +15,11 @@ private struct Properties {
 
 final class HomeViewController: UIViewController {
     
-    let settingsLauncher = SettingsLauncer()
+    lazy var settingsLauncher: SettingsLauncer = {
+        let settingsLauncher = SettingsLauncer()
+        settingsLauncher.homeViewController = self
+        return settingsLauncher
+    }()
     
     var videos: [Video] = {
         var kanyeChannel = Channel(name: "TaylorSwiftVevo 1,604,683,594", profileImageName: "taylor")
@@ -79,10 +83,23 @@ final class HomeViewController: UIViewController {
         print("tabSearchNavigationBar")
     }
     
-  
-    
     @objc func tabMoreNavigationBar() {
-       settingsLauncher.showSettings()
+        settingsLauncher.showSettings()
+    }
+    
+    func showSettingsViewController(setting: Setting) {
+        
+        switch setting.name {
+        case "Setting":
+            let settingViewController = SettingsViewController()
+            settingViewController.title = setting.name
+            navigationController?.pushViewController(settingViewController, animated: true)
+        default:
+            let otherVC = UIViewController()
+            otherVC.view.backgroundColor = .white
+            otherVC.title = setting.name
+            navigationController?.pushViewController(otherVC, animated: true)
+        }
     }
     
    
