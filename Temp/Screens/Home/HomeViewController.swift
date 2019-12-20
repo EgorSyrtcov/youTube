@@ -90,14 +90,14 @@ final class HomeViewController: UIViewController {
     func showSettingsViewController(setting: Setting) {
         
         switch setting.name {
-        case "Setting":
+        case SettingName.setting:
             let settingViewController = SettingsViewController()
-            settingViewController.title = setting.name
+            settingViewController.title = setting.name.rawValue
             navigationController?.pushViewController(settingViewController, animated: true)
         default:
             let otherVC = UIViewController()
             otherVC.view.backgroundColor = .white
-            otherVC.title = setting.name
+            otherVC.title = setting.name.rawValue
             navigationController?.pushViewController(otherVC, animated: true)
         }
     }

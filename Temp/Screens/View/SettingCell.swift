@@ -23,7 +23,7 @@ class SettingCell: BaseCell {
             guard let setting = setting else {return}
             iconImageView.image = UIImage(named: setting.imageName)?.withRenderingMode(.alwaysTemplate)
             iconImageView.tintColor = .darkGray
-            nameLabel.text = setting.name
+            nameLabel.text = setting.name.rawValue
         }
     }
     

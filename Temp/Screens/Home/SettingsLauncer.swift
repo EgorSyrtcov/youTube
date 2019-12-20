@@ -12,7 +12,16 @@ private struct Properties {
     static let сellReuseIdentifier = "CellId"
 }
 
-class SettingsLauncer: NSObject {
+enum SettingName: String {
+    case setting = "Setting"
+    case cancel = "Cancel"
+    case terms = "Terms"
+    case sent = "Sent"
+    case help = "Help"
+    case switchAccount = "Switch Account"
+}
+
+final class SettingsLauncer: NSObject {
     
    weak var homeViewController: HomeViewController?
     
@@ -22,12 +31,12 @@ class SettingsLauncer: NSObject {
     
     let settings: [Setting] = {
         
-        let setting = Setting(name: "Setting", imageName: "setttings")
-        let terms = Setting(name: "Terms", imageName: "Tersm")
-        let sent = Setting(name: "Sent", imageName: "send")
-        let help = Setting(name: "Help", imageName: "help")
-        let switchAccount = Setting(name: "Switch Account", imageName: "profile")
-        let cancel = Setting(name: "Cancel", imageName: "cancel")
+        let setting = Setting(name: SettingName.setting, imageName: "setttings")
+        let terms = Setting(name: SettingName.terms, imageName: "Tersm")
+        let sent = Setting(name: SettingName.sent, imageName: "send")
+        let help = Setting(name: SettingName.help, imageName: "help")
+        let switchAccount = Setting(name: SettingName.switchAccount, imageName: "profile")
+        let cancel = Setting(name: SettingName.cancel, imageName: "cancel")
         
         return [setting, terms, sent, help, switchAccount, cancel]
     }()
@@ -78,7 +87,7 @@ class SettingsLauncer: NSObject {
 
             }) { (completed: Bool) in
 
-                if setting.name != "Cancel" {
+                if setting.name.rawValue != SettingName.cancel.rawValue {
                     self.homeViewController?.showSettingsViewController(setting: setting)
       }
     }
