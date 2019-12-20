@@ -31,12 +31,12 @@ final class SettingsLauncer: NSObject {
     
     let settings: [Setting] = {
         
-        let setting = Setting(name: SettingName.setting, imageName: "setttings")
-        let terms = Setting(name: SettingName.terms, imageName: "Tersm")
-        let sent = Setting(name: SettingName.sent, imageName: "send")
-        let help = Setting(name: SettingName.help, imageName: "help")
-        let switchAccount = Setting(name: SettingName.switchAccount, imageName: "profile")
-        let cancel = Setting(name: SettingName.cancel, imageName: "cancel")
+        let setting = Setting(name: .setting, imageName: "setttings")
+        let terms = Setting(name: .terms, imageName: "Tersm")
+        let sent = Setting(name: .sent, imageName: "send")
+        let help = Setting(name: .help, imageName: "help")
+        let switchAccount = Setting(name: .switchAccount, imageName: "profile")
+        let cancel = Setting(name: .cancel, imageName: "cancel")
         
         return [setting, terms, sent, help, switchAccount, cancel]
     }()
@@ -87,7 +87,7 @@ final class SettingsLauncer: NSObject {
 
             }) { (completed: Bool) in
 
-                if setting.name.rawValue != SettingName.cancel.rawValue {
+                if setting.name != .cancel {
                     self.homeViewController?.showSettingsViewController(setting: setting)
       }
     }
