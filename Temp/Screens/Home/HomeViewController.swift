@@ -41,14 +41,15 @@ final class HomeViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.frame.width, height: 310)
-        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.alwaysBounceVertical = true
+        collection.isPagingEnabled = true
         collection.backgroundColor = .clear
         collection.dataSource = self
         collection.delegate = self
-        collection.register(VideoCell.self, forCellWithReuseIdentifier: Properties.сellReuseIdentifier)
+        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Properties.сellReuseIdentifier)
         return collection
     }()
     
@@ -71,6 +72,19 @@ final class HomeViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
 
         setupNavigationButtons()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        menuBar.horizontalBarView.snp.updateConstraints { (make) in
+            make.left.equalTo(scrollView.contentOffset.x / 4)
+        }
+
+//        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+//            navigationController?.isNavigationBarHidden = true
+//        } else {
+//           navigationController?.isNavigationBarHidden = false
+//        }
     }
     
     private func setupNavigationButtons() {
@@ -102,8 +116,6 @@ final class HomeViewController: UIViewController {
         }
     }
     
-   
-    
     private func assemble() {
        view.addSubview(menuBar)
        view.addSubview(collectionView)
@@ -111,31 +123,47 @@ final class HomeViewController: UIViewController {
     
     private func setupLayout() {
         menuBar.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
+            
             make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
             make.height.equalTo(50)
         }
         
         collectionView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
             make.top.equalTo(menuBar.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
         }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
-    }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath) as! VideoCell
-        cell.video = videos[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath)
+        let colors: [UIColor] = [.blue, .green, .yellow, .red]
+        cell.backgroundColor = colors[indexPath.row]
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
 }
+
+//extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return videos.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath) as! VideoCell
+//        cell.video = videos[indexPath.item]
+//        return cell
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 0
+//    }
+//}

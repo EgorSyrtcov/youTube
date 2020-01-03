@@ -14,6 +14,8 @@ private struct Properties {
 
 class MenuBar: UIView {
     
+    let horizontalBarView = UIView()
+    
     let imageArr = ["account", "home", "trending", "subscription"]
     
     lazy var collectionView: UICollectionView = {
@@ -34,6 +36,7 @@ class MenuBar: UIView {
         
         assemble()
         selectIndexPath()
+        setupHorizontalBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,9 +48,28 @@ class MenuBar: UIView {
         collectionView.selectItem(at: selectIndexPath, animated: false, scrollPosition: .right)
     }
     
+    private func setupHorizontalBar() {
+        horizontalBarView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        addSubview(horizontalBarView)
+        
+        horizontalBarView.snp.makeConstraints { (make) in
+            make.left.bottom.equalToSuperview()
+            make.width.equalTo(snp.width).multipliedBy(0.25)
+            make.height.equalTo(8)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let x = CGFloat(indexPath.item) * frame.width / 4
+        horizontalBarView.snp.updateConstraints { (make) in
+            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                make.left.equalTo(x)
+            }, completion: nil)
+        }
+    }
+    
     private func assemble() {
         addSubview(collectionView)
-        
         setupLayout()
     }
     
