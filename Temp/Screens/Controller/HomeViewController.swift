@@ -15,33 +15,23 @@ private struct Properties {
 
 final class HomeViewController: UIViewController {
     
+    let titles = ["Home", "Trending", "Subscriptions", "Account"]
+    
     lazy var settingsLauncher: SettingsLauncer = {
         let settingsLauncher = SettingsLauncer()
         settingsLauncher.homeViewController = self
         return settingsLauncher
     }()
     
-    var videos: [Video] = {
-        var kanyeChannel = Channel(name: "TaylorSwiftVevo 1,604,683,594", profileImageName: "taylor")
-        var kanyeChannel2 = Channel(name: "TaylorSwiftVevo 1,963,549,594", profileImageName: "taylor2")
-        var kanyeChannel3 = Channel(name: "TaylorSwiftVevo 1,831,863,594", profileImageName: "taylor3")
-        var kanyeChannel4 = Channel(name: "TaylorSwiftVevo 1,207,264,594", profileImageName: "taylor4")
-        
-        var blankSpaceVideo = Video(thumbnailImageName: "taylor swift", title: "Taylor Swift - Blank Space", channel: kanyeChannel)
-        var blankSpaceVideo2 = Video(thumbnailImageName: "taylor swift2", title: "Taylor Swift - Bad Blood feathera Bad Blood feathera", channel: kanyeChannel2)
-        var blankSpaceVideo3 = Video(thumbnailImageName: "taylor swift3", title: "Taylor Swift - Blank Space", channel: kanyeChannel3)
-        var blankSpaceVideo4 = Video(thumbnailImageName: "taylor swift4", title: "Taylor Swift - Blank Space", channel: kanyeChannel4)
-        return [blankSpaceVideo, blankSpaceVideo2, blankSpaceVideo3, blankSpaceVideo4]
-    }()
-    
-    let menuBar: MenuBar = {
+    lazy var menuBar: MenuBar = {
         let mb = MenuBar()
+        mb.homeController = self
         return mb
     }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        layout.itemSize = CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -49,9 +39,10 @@ final class HomeViewController: UIViewController {
         collection.backgroundColor = .clear
         collection.dataSource = self
         collection.delegate = self
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Properties.сellReuseIdentifier)
+        collection.register(FeedCell.self, forCellWithReuseIdentifier: Properties.сellReuseIdentifier)
         return collection
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,12 +70,21 @@ final class HomeViewController: UIViewController {
         menuBar.horizontalBarView.snp.updateConstraints { (make) in
             make.left.equalTo(scrollView.contentOffset.x / 4)
         }
-
-//        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
-//            navigationController?.isNavigationBarHidden = true
-//        } else {
-//           navigationController?.isNavigationBarHidden = false
-//        }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = targetContentOffset.pointee.x / view.frame.width
+        
+        let indexPath = IndexPath(item: Int(index), section: 0)
+        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        
+        setTitleForIndex(index: Int(index))
+    }
+    
+    private func setTitleForIndex(index: Int) {
+        if let titleLabel = navigationItem.titleView as? UILabel {
+            titleLabel.text = titles[Int(index)]
+        }
     }
     
     private func setupNavigationButtons() {
@@ -94,7 +94,14 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func tabSearchNavigationBar() {
-        print("tabSearchNavigationBar")
+        scrollToMenuIndex(menuIndex: 2)
+    }
+    
+    func scrollToMenuIndex(menuIndex: Int) {
+        let indexPath = IndexPath(item: menuIndex, section: 0)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        
+        setTitleForIndex(index: menuIndex)
     }
     
     @objc func tabMoreNavigationBar() {
@@ -143,27 +150,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath)
-        let colors: [UIColor] = [.blue, .green, .yellow, .red]
-        cell.backgroundColor = colors[indexPath.row]
+        let identifier: String
+        
+        switch indexPath.item {
+        case 0:
+            identifier = Properties.сellReuseIdentifier
+        default:
+            identifier = Properties.сellReuseIdentifier
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         return cell
     }
-    
 }
-
-//extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return videos.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Properties.сellReuseIdentifier, for: indexPath) as! VideoCell
-//        cell.video = videos[indexPath.item]
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-//}

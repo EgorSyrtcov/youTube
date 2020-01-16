@@ -15,6 +15,7 @@ private struct Properties {
 class MenuBar: UIView {
     
     let horizontalBarView = UIView()
+    var homeController: HomeViewController?
     
     let imageArr = ["account", "home", "trending", "subscription"]
     
@@ -55,17 +56,12 @@ class MenuBar: UIView {
         horizontalBarView.snp.makeConstraints { (make) in
             make.left.bottom.equalToSuperview()
             make.width.equalTo(snp.width).multipliedBy(0.25)
-            make.height.equalTo(8)
+            make.height.equalTo(6)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = CGFloat(indexPath.item) * frame.width / 4
-        horizontalBarView.snp.updateConstraints { (make) in
-            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-                make.left.equalTo(x)
-            }, completion: nil)
-        }
+            homeController?.scrollToMenuIndex(menuIndex: indexPath.item)
     }
     
     private func assemble() {

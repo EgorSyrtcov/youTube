@@ -11,6 +11,7 @@
 		2E0BB0C4239E45700070234B /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BB0C3239E45700070234B /* MenuBar.swift */; };
 		2E0BB0C6239E48AA0070234B /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BB0C5239E48AA0070234B /* BaseCell.swift */; };
 		2E0BB0C8239E49620070234B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BB0C7239E49620070234B /* MenuCell.swift */; };
+		2E0DAF7D23C0629F008AEB0C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0DAF7C23C0629F008AEB0C /* FeedCell.swift */; };
 		2E1A708123A7A945005222B4 /* SettingsLauncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1A708023A7A945005222B4 /* SettingsLauncer.swift */; };
 		2E1AC24223A8E46100C2B40B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AC24123A8E46100C2B40B /* SettingCell.swift */; };
 		2E425A8223962DED003B04B2 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E425A8123962DED003B04B2 /* SnapKit.framework */; };
@@ -23,6 +24,7 @@
 		2EE5820F237696AE00AE8E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5820E237696AE00AE8E98 /* Assets.xcassets */; };
 		2EE58212237696AE00AE8E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE58210237696AE00AE8E98 /* LaunchScreen.storyboard */; };
 		2EE9C2B023AB5A40001F95A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */; };
+		2EEE046D23CEDFCB0044CCCB /* VideoLauncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE046C23CEDFCB0044CCCB /* VideoLauncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		2E0BB0C3239E45700070234B /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		2E0BB0C5239E48AA0070234B /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		2E0BB0C7239E49620070234B /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		2E0DAF7C23C0629F008AEB0C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		2E1A708023A7A945005222B4 /* SettingsLauncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncer.swift; sourceTree = "<group>"; };
 		2E1AC24123A8E46100C2B40B /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		2E425A8123962DED003B04B2 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		2EE58211237696AE00AE8E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EE58213237696AE00AE8E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2EEE046C23CEDFCB0044CCCB /* VideoLauncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,21 +78,21 @@
 			path = UIkit;
 			sourceTree = "<group>";
 		};
-		2E0CC10E2384376E00C6EF57 /* Home */ = {
+		2E0CC10E2384376E00C6EF57 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				2EE58209237696AB00AE8E98 /* HomeViewController.swift */,
 				2E1A708023A7A945005222B4 /* SettingsLauncer.swift */,
 				2EE9C2AF23AB5A40001F95A8 /* SettingsViewController.swift */,
 			);
-			path = Home;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2E11D05C23811F37006C07DF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				2EA58B5C239F72EE00A13C69 /* Model */,
-				2E0CC10E2384376E00C6EF57 /* Home */,
+				2E0CC10E2384376E00C6EF57 /* Controller */,
 				2E425A83239640B9003B04B2 /* View */,
 			);
 			path = Screens;
@@ -100,6 +104,7 @@
 				2E425A84239640DD003B04B2 /* VideoCell.swift */,
 				2E1AC24123A8E46100C2B40B /* SettingCell.swift */,
 				2E0BB0C3239E45700070234B /* MenuBar.swift */,
+				2E0DAF7C23C0629F008AEB0C /* FeedCell.swift */,
 				2E0BB0C7239E49620070234B /* MenuCell.swift */,
 				2E0BB0C5239E48AA0070234B /* BaseCell.swift */,
 			);
@@ -136,6 +141,7 @@
 		2EE58206237696AB00AE8E98 /* Temp */ = {
 			isa = PBXGroup;
 			children = (
+				2EEE046B23CEDFA60044CCCB /* Helper */,
 				2EF44219238906B90087B44E /* Service */,
 				2EE58207237696AB00AE8E98 /* AppDelegate.swift */,
 				2E0AA9502386616500D10413 /* Extensions */,
@@ -153,6 +159,14 @@
 				2E425A8123962DED003B04B2 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EEE046B23CEDFA60044CCCB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2EEE046C23CEDFCB0044CCCB /* VideoLauncer.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		2EF44219238906B90087B44E /* Service */ = {
@@ -264,9 +278,11 @@
 				2EA58B5E239F72FA00A13C69 /* Video.swift in Sources */,
 				2EE58208237696AB00AE8E98 /* AppDelegate.swift in Sources */,
 				2EA58B60239F7A4C00A13C69 /* Channel.swift in Sources */,
+				2E0DAF7D23C0629F008AEB0C /* FeedCell.swift in Sources */,
 				2EE9C2B023AB5A40001F95A8 /* SettingsViewController.swift in Sources */,
 				2E0BB0C4239E45700070234B /* MenuBar.swift in Sources */,
 				2E1A708123A7A945005222B4 /* SettingsLauncer.swift in Sources */,
+				2EEE046D23CEDFCB0044CCCB /* VideoLauncer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
